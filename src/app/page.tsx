@@ -5,7 +5,15 @@ import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import styles from "./page.module.css";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
-import { animate } from "framer-motion";
+import { RefObject } from "react";
+
+interface AnimationConfig {
+  trigger: string;
+  element: RefObject<HTMLElement>;
+  axis: { x?: number; y?: number; z?: number };
+  children?: boolean;
+}
+
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
@@ -23,7 +31,7 @@ const Page = () => {
   const heroImageRef = useRef(null);
   const aboutRef = useRef(null);
 
-  const enterAnimations = [
+  const enterAnimations:AnimationConfig[] = [
     {
       trigger: "#about",
       element: aboutRef,
@@ -32,7 +40,7 @@ const Page = () => {
     },
   ];
 
-  const exitAnimations = [
+  const exitAnimations:AnimationConfig = [
     {
       trigger: "#hero",
       element: heroContentRef,
