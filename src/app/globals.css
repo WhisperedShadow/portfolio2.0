@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Audiowide";
+  src: url(fonts/Audiowide-Regular.ttf);
+  font-size: 3rem;
+}
+
+@font-face {
+  font-family: "sora";
+  src: url(fonts/Sora-VariableFont_wght.ttf);
+  font-size: 3rem;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url(fonts/static/Exo2-Regular.ttf);
+  font-size: 3rem;
+}
+
+::-webkit-scrollbar{
+  /* width: 0;   */
+}
+
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+section{
+  min-height: 100vh;
+  width: 100%;
+  perspective: 1000px;
+} 
+
+:root {
+  --fp: "Audiowide", sans-serif;
+  --fs: "sora", sans-serif;
+  --ft: "Exo 2", monospace;
+}
+
+.hi{
+  font-family: var(--fp);
+}
+
+
+.hi2{
+  font-family: var(--fs);
+}
+
+
+.hi3{
+  font-family: var(--ft);
+}

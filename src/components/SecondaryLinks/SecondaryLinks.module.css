@@ -1,0 +1,31 @@
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--ft);
+  position: relative;
+  padding: 0.5rem;
+  border: 1px solid white;
+  z-index: 0;
+  transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.link::after {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: -1;
+}
+
+.link:hover::after {
+  clip-path: polygon(0 0, 0 100%, 90% 100%, 100% 0);
+}
+
+.link:hover{
+    color: black;
+}

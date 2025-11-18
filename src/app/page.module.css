@@ -1,0 +1,130 @@
+.hero {
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  min-height: calc(100vh - 50px);
+  overflow: hidden;
+}
+
+.heroImage {
+  position: relative;
+  background-color: #fff;
+}
+
+.heroImage img {
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+}
+
+.heroContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+  padding-top: 8rem;
+  perspective: 1000px;
+  z-index: 100;
+}
+
+.heroContent p:nth-child(1) {
+  position: relative;
+  font-family: var(--fs);
+  font-size: 2em;
+}
+
+.heroContent p:nth-child(3) {
+  font-family: var(--ft);
+  font-size: 1.5em;
+  height: 1.5rem;
+}
+
+.heroContent h1 {
+  font-size: 6em;
+  font-family: var(--fp);
+  line-height: 80%;
+}
+
+.heroContent div {
+  margin-top: 1rem;
+}
+
+.heroContent div *{
+  margin-right: 1rem;
+}
+
+.heroContent a:nth-child(1) {
+  color: #fff;
+  border: 1px solid#000;
+}
+
+.heroContent a:nth-child(1)::after {
+  background-color: black;
+}
+
+.heroContent a:nth-child(2) {
+  border: 1px solid#000;
+  color: black;
+  background-color: #fff;
+}
+.heroContent a:nth-child(2):hover {
+  color: white;
+  background-color: transparent;
+}
+
+.heroContent a:nth-child(2)::after {
+  background-color: black;
+}
+
+.about{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    grid-template-columns: 1fr;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .heroContent {
+    /* background-color: red; */
+    padding: 0;
+    padding-left: 1rem;
+    padding-top: 20vh;
+  }
+
+  .heroContent h1,
+  .heroContent p,
+  .heroContent div {
+    filter: drop-shadow(-1px 1px 1px white) drop-shadow(1px 1px 1px white)
+      drop-shadow(1px -1px 1px white) drop-shadow(-1px -1px 1px white);
+    z-index: 10;
+  }
+
+  .heroContent h1 {
+    font-size: 4rem;
+    line-height: 100%;
+  }
+
+  .heroContent p:nth-child(1) {
+    font-family: var(--fs);
+    font-size: 1em;
+  }
+
+  .heroContent p:nth-child(3) {
+    font-family: var(--ft);
+    font-size: 1em;
+    height: 3rem;
+    width: 16rem;
+  }
+
+  .heroImage {
+    position: absolute;
+    height: calc(100% - 5rem);
+    bottom: 0;
+    right: 70%;
+  }
+}
