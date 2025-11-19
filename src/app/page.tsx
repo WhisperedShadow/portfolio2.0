@@ -5,15 +5,6 @@ import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import styles from "./page.module.css";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
-import { RefObject } from "react";
-
-// interface AnimationConfig {
-//   trigger: string;
-//   element: RefObject<HTMLElement>;
-//   axis: { x?: number; y?: number; z?: number };
-//   children?: boolean;
-// }
-
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
@@ -26,19 +17,19 @@ const heroSubHeading = [
 const Page = () => {
   const [mobileView, setMobileView] = useState(false);
   const [heroSubHeadingIndex, setHeroSubHeadingIndex] = useState(0);
-  const heroSubHeadingRef = useRef<HTMLElement | null>(null);
-  const heroContentRef = useRef<HTMLElement | null>(null);
-  const heroImageRef = useRef<HTMLElement | null>(null);
-  const aboutRef = useRef<HTMLElement | null>(null);
+  const heroSubHeadingRef = useRef(null);
+  const heroContentRef = useRef(null);
+  const heroImageRef = useRef(null);
+  const aboutRef = useRef(null);
 
-  // const enterAnimations:AnimationConfig[] = [
-  //   {
-  //     trigger: "#about",
-  //     element: aboutRef,
-  //     axis: { x: 20, z: -500 },
-  //     children: true,
-  //   },
-  // ];
+  const enterAnimations = [
+    {
+      trigger: "#about",
+      element: aboutRef,
+      axis: { x: 20, z: -500 },
+      children: true,
+    },
+  ];
 
   const exitAnimations = [
     {
@@ -64,44 +55,40 @@ const Page = () => {
   }, []);
 
   useLayoutEffect(() => {
-    enterAnimations.forEach((animate) => {
-      gsap.from(
-        animate.children
-          ? animate.element?.current?.children
-          : animate.element.current,
-        {
-          ...animate.axis,
-          opacity: 0,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: animate.trigger,
-            start: "top 100%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        }
-      );
-    });
+    gsap.to(
+      heroContentRef?.current,
 
-    exitAnimations.forEach((animate) => {
-      gsap.to(
-        animate.children
-          ? animate.element?.current?.children
-          : animate.element.current,
-        {
-          ...animate.axis,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: animate.trigger,
-            start: "bottom 100%",
-            end: "bottom 50%",
-            scrub: 1,
-          },
-        }
-      );
-    });
+      {
+        x:-100,
+        z:500,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom 100%",
+          end: "bottom 50%",
+          scrub: 1,
+        },
+      }
+    );
+    gsap.to(
+      heroImageRef?.current,
+
+      {
+        x:100,
+        z:500,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "bottom 100%",
+          end: "bottom 50%",
+          scrub: 1,
+        },
+      }
+    );
   }, []);
 
   useLayoutEffect(() => {

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { link } from "@/types/links";
 import styles from "./SecondaryLinks.module.css";
