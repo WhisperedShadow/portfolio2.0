@@ -7,12 +7,12 @@ import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
 import { RefObject } from "react";
 
-interface AnimationConfig {
-  trigger: string;
-  element: RefObject<HTMLElement>;
-  axis: { x?: number; y?: number; z?: number };
-  children?: boolean;
-}
+// interface AnimationConfig {
+//   trigger: string;
+//   element: RefObject<HTMLElement>;
+//   axis: { x?: number; y?: number; z?: number };
+//   children?: boolean;
+// }
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,21 +26,21 @@ const heroSubHeading = [
 const Page = () => {
   const [mobileView, setMobileView] = useState(false);
   const [heroSubHeadingIndex, setHeroSubHeadingIndex] = useState(0);
-  const heroSubHeadingRef = useRef(null);
-  const heroContentRef = useRef(null);
-  const heroImageRef = useRef(null);
-  const aboutRef = useRef(null);
+  const heroSubHeadingRef = useRef<HTMLElement | null>(null);
+  const heroContentRef = useRef<HTMLElement | null>(null);
+  const heroImageRef = useRef<HTMLElement | null>(null);
+  const aboutRef = useRef<HTMLElement | null>(null);
 
-  const enterAnimations:AnimationConfig[] = [
-    {
-      trigger: "#about",
-      element: aboutRef,
-      axis: { x: 20, z: -500 },
-      children: true,
-    },
-  ];
+  // const enterAnimations:AnimationConfig[] = [
+  //   {
+  //     trigger: "#about",
+  //     element: aboutRef,
+  //     axis: { x: 20, z: -500 },
+  //     children: true,
+  //   },
+  // ];
 
-  const exitAnimations:AnimationConfig = [
+  const exitAnimations = [
     {
       trigger: "#hero",
       element: heroContentRef,
