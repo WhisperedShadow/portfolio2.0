@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import styles from "./Nav.module.css";
 import { link } from "@/types/links";
 import PrimaryLinks from "@/components/PrimaryLinks/PrimaryLinks";
@@ -22,14 +22,14 @@ const Nav = () => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const linksRef = useRef<HTMLSpanElement[] | null[]>([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => setMobileView(window.innerWidth < 480);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!menuRef.current || !mobileView) return;
 
     if (menuOpen) {
