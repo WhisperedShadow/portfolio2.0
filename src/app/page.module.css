@@ -4,17 +4,20 @@
   grid-template-columns: 3fr 2fr;
   min-height: calc(100vh - 50px);
   overflow: hidden;
+  /* background-image: url("/home/2147864690.jpg");
+  background-size: cover; */
 }
 
 .heroImage {
   position: relative;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .heroImage img {
   position: absolute;
   height: 100%;
   bottom: 0;
+  overflow: hidden;
 }
 
 .heroContent {
@@ -25,6 +28,7 @@
   padding-top: 8rem;
   perspective: 1000px;
   z-index: 100;
+  overflow: hidden;
 }
 
 .heroContent p:nth-child(1) {
@@ -49,7 +53,7 @@
   margin-top: 1rem;
 }
 
-.heroContent div *{
+.heroContent div * {
   margin-right: 1rem;
 }
 
@@ -76,11 +80,99 @@
   background-color: black;
 }
 
-.about{
+.about {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
+  color: white;
+  padding-top: 1rem;
+  /* background-image: url("/home/51607.jpg");
+  background-position: right; */
 }
+
+.about h1 {
+  font-size: 4rem;
+  font-family: var(--fp);
+  margin-bottom: 1rem;
+}
+
+.about p {
+  font-size: 1.3rem;
+  font-family: var(--fs);
+  width: 80%;
+  text-align: center;
+}
+
+.about p span {
+  font-family: var(--ft);
+  font-size: 1.2rem;
+  color: #ff5733;
+}
+
+.about div {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.projects {
+  padding: 2rem;
+}
+
+.projects_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects_heading h1 {
+  font-family: var(--fp);
+  font-size: 3rem;
+}
+
+.projects_container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.project {
+  background-color: black;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project h2{
+  font-family: var(--fs);
+  margin-bottom: 0.5rem;
+}
+
+.project p{
+  margin-bottom: 1.5rem;
+  font-family: var(--ft);
+}
+
+.project a{
+  align-self: start;
+}
+
+.contact{
+  background: linear-gradient(180deg, white, black, black);
+}
+
 
 @media (max-width: 480px) {
   .hero {
@@ -90,10 +182,9 @@
   }
 
   .heroContent {
-    /* background-color: red; */
     padding: 0;
     padding-left: 1rem;
-    padding-top: 20vh;
+    padding-top: 25vh;
   }
 
   .heroContent h1,
@@ -105,7 +196,8 @@
   }
 
   .heroContent h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+    width: 60%;
     line-height: 100%;
   }
 
@@ -126,5 +218,18 @@
     height: calc(100% - 5rem);
     bottom: 0;
     right: 70%;
+  }
+
+  .about h1 {
+    font-size: 2.5rem;
+  }
+
+  .about p {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .projects_heading h1 {
+    font-size: 2rem;
   }
 }
