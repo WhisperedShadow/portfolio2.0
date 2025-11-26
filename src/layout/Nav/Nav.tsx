@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import styles from "./Nav.module.css";
-import { link } from "@/types/links";
+import { link } from "@/types/types";
 import PrimaryLinks from "@/components/PrimaryLinks/PrimaryLinks";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import HamburgerMenu from "@/assets/HamburgerMenu/HamburgerMenu";
 import { gsap } from "gsap";
 
 const nav_links: link[] = [
-  { label: "Home", link: "/home" },
+  { label: "Home", link: "/" },
   { label: "About", link: "/about" },
   { label: "Projects", link: "/project" },
   { label: "Contact", link: "/contact" },

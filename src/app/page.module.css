@@ -130,6 +130,19 @@
   font-size: 3rem;
 }
 
+.projects_heading a{
+  color: black;
+  border: 1px solid black;
+}
+
+.projects_heading a:hover{
+  color: white;
+}
+
+.projects_heading a::after{
+  background-color: black;
+}
+
 .projects_container {
   margin-top: 2rem;
   display: grid;
@@ -137,7 +150,7 @@
   gap: 2rem;
 }
 
-.project img{
+.project img {
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -155,26 +168,54 @@
   flex-direction: column;
 }
 
-.project h2{
+.project h2 {
   font-family: var(--fs);
   margin-bottom: 0.5rem;
 }
 
-.project p{
+.project p {
   margin-bottom: 1.5rem;
   font-family: var(--ft);
 }
 
-.project a{
+.project a {
   align-self: start;
 }
 
-.contact{
-  background: linear-gradient(180deg, white, black, black);
+.contact {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
 }
 
+.contact_heading {
+  font-family: var(--fp);
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  height: 4rem;
+  text-align: center;
+}
 
-@media (max-width: 480px) {
+.contact_para {
+  font-family: var(--ft);
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.contact_btns {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
     width: 100%;
@@ -231,5 +272,14 @@
 
   .projects_heading h1 {
     font-size: 2rem;
+  }
+
+  .contact_heading {
+    font-size: 2rem;
+    height: 6rem;
+  }
+
+  .contact_para {
+    font-size: 1rem;
   }
 }

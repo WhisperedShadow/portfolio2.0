@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { link } from "@/types/links";
+import { link } from "@/types/types";
 import styles from "./PrimaryLinks.module.css";
 
 const PrimaryLinks = (link: link) => {

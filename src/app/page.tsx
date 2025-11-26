@@ -1,27 +1,58 @@
 "use client";
 import { gsap } from "gsap";
 import { TextPlugin, ScrollTrigger } from "gsap/all";
-import { useRef, useEffect, useState, useLayoutEffect } from "react";
+import { useRef, useEffect, useState, useLayoutEffect, JSX } from "react";
 import { motion } from "framer-motion";
 import styles from "./page.module.css";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
 import Counter from "@/components/Counter/Counter";
+import { projectsProps, contactIconsProps } from "@/types/types";
+import {
+  githubIcon,
+  LinkedInIcon,
+  instagramIcon,
+  facebookIcon,
+} from "@/assets/Icons/Icons";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
-const heroSubHeading = [
+const heroSubHeading: string[] = [
   "I craft modern, interactive, and dynamic web experiences.",
   "I am exploring AI and Machine Learning.",
 ];
 
-interface projectsProps {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}
+const contact_heading: string[] = [
+  "Let's connect...",
+  "Have a project ?",
+  "Just wanna say hi ?",
+  "Looking for collaboration ?",
+  "Want to work together ?",
+];
+
+
+
+const contactIcons: contactIconsProps[] = [
+  {
+    icon: githubIcon,
+    link: "github.com/duraiponsingh",
+  },
+  {
+    icon: LinkedInIcon,
+    link: "linkedin.com/in/durai-pon-singh",
+  },
+  {
+    icon: instagramIcon,
+    link: "instagram.com/durai_pon_singh",
+  },
+  {
+    icon: facebookIcon,
+    link: "facebook.com/durai.ponsingh.5",
+  },
+];
+
 const projectsData: projectsProps[] = [
   {
     title: "Zenith'25 – College Fest Website",
@@ -50,13 +81,15 @@ const Page = () => {
   const [mobileView, setMobileView] = useState(false);
   const [heroSubHeadingIndex, setHeroSubHeadingIndex] = useState(0);
   const heroSubHeadingRef = useRef(null);
+  const [contactHeadingIndex, setcontactHeadingIndex] = useState(0);
+  const contactHeadingRef = useRef(null);
   const heroContentRef = useRef(null);
   const heroImageRef = useRef(null);
   const aboutRef = useRef(null);
 
   useEffect(() => {}, []);
   useEffect(() => {
-    const handleResize = () => setMobileView(window.innerWidth < 480);
+    const handleResize = () => setMobileView(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
 
@@ -103,7 +136,7 @@ const Page = () => {
     const ctx = gsap.context(() => {
       ScrollTrigger.matchMedia({
         // Desktop only
-        "(min-width: 480px)": () => {
+        "(min-width: 768px)": () => {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: `.${styles.projects}`,
@@ -136,7 +169,7 @@ const Page = () => {
         },
 
         // Mobile only – same animation, no pin
-        "(max-width: 479px)": () => {
+        "(max-width: 768px)": () => {
           const cards = gsap.utils.toArray<HTMLElement>(`.${styles.project}`);
 
           cards.forEach((card) => {
@@ -164,19 +197,42 @@ const Page = () => {
   }, []);
 
   useLayoutEffect(() => {
-    const tl = gsap.timeline();
-    tl.to(heroSubHeadingRef.current, {
-      text: heroSubHeading[heroSubHeadingIndex],
-      duration: heroSubHeading[heroSubHeadingIndex].length / 10,
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+      tl.to(heroSubHeadingRef.current, {
+        text: heroSubHeading[heroSubHeadingIndex],
+        duration: heroSubHeading[heroSubHeadingIndex].length / 10,
+      });
+      tl.to(heroSubHeadingRef.current, { duration: 3 });
+      tl.to(heroSubHeadingRef.current, {
+        text: "",
+        duration: 3,
+        onComplete: () =>
+          setHeroSubHeadingIndex((prev) => (prev + 1) % heroSubHeading.length),
+      });
     });
-    tl.to(heroSubHeadingRef.current, { duration: 3 });
-    tl.to(heroSubHeadingRef.current, {
-      text: "",
-      duration: 3,
-      onComplete: () =>
-        setHeroSubHeadingIndex((prev) => (prev + 1) % heroSubHeading.length),
+
+    return () => ctx.revert();
+  }, [heroSubHeadingIndex, setHeroSubHeadingIndex]);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+      tl.to(contactHeadingRef.current, {
+        text: contact_heading[contactHeadingIndex],
+        duration: contact_heading[contactHeadingIndex].length / 10,
+      });
+      tl.to(contactHeadingRef.current, { duration: 3 });
+      tl.to(contactHeadingRef.current, {
+        text: "",
+        duration: 1,
+        onComplete: () =>
+          setcontactHeadingIndex((prev) => (prev + 1) % contact_heading.length),
+      });
     });
-  }, [heroSubHeadingIndex]);
+
+    return () => ctx.revert();
+  }, [contactHeadingIndex, setcontactHeadingIndex]);
 
   return (
     <>
@@ -211,13 +267,12 @@ const Page = () => {
         </div>
       </section>
       <section id="about" className={styles.about} ref={aboutRef}>
-        <h1>Who I Am</h1>
+        <h1>Who Am I?</h1>
         <p>
-          I&apos;m Durai Pon Singh, a dedicated Computer Science and Engineering
-          student with a deep curiosity for how things work. My journey
-          isn&apos;t just about writing code; it&apos;s about building a
-          versatile skill set that bridges technical precision with creative
-          problem-solving.
+          I’m a developer who loves building real-world products. Started with
+          simple HTML pages, now I’m creating AI-assisted tools, full-stack
+          apps, and animated web experiences. I mix logic, creativity, and
+          curiosity in every project.
         </p>
         <div>
           <Counter label={"Active Years"} value={3} suffix={"+"} />
@@ -227,7 +282,7 @@ const Page = () => {
       </section>
       <section id="projects" className={styles.projects}>
         <div className={styles.projects_heading}>
-          <h1>What I do</h1>
+          <h1>My Works</h1>
           <SecondaryLinks
             label="See More"
             link="/projects"
@@ -249,7 +304,28 @@ const Page = () => {
           ))}
         </div>
       </section>
-      <section className={styles.contact}></section>
+      <section className={styles.contact}>
+        <h1 className={styles.contact_heading} ref={contactHeadingRef}></h1>
+        <p className={styles.contact_para}>
+          Whether you have a question, a project idea, or just want to say hi,
+          my inbox is always open. I look forward to hearing from you!
+        </p>
+        <div className={styles.contact_btns}>
+          <TertiaryLinks label="Conact Me" link="/contact" dowloadble={false} />
+          <SecondaryLinks
+            label="See My Resume"
+            link="/Durai_Pon_Singh_Resume.pdf"
+            dowloadble={true}
+          />
+        </div>
+        <div className={styles.contact_icons}>
+          {contactIcons.map((contact, i) => (
+            <Link key={i} href={contact.link} >
+              {contact.icon}
+            </Link>
+          ))}
+        </div>
+      </section>
     </>
   );
 };
