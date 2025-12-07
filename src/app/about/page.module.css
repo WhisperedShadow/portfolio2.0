@@ -1,0 +1,73 @@
+/* intro styling */
+
+.intro {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+}
+
+.intro_content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding: 2rem;
+}
+
+.intro_content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: var(--fp);
+}
+
+.intro_content p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-family: var(--fs);
+}
+
+.intro_content p::first-letter{
+    padding-left: 2rem;
+}
+
+.intro_content p span {
+  font-weight: bold;
+}
+
+.intro_image{
+display: relative;
+}
+
+.intro_image img{
+  display: absolute;
+  width:90%;
+}
+
+
+.strength {
+  background-color: black;
+}
+
+.skills {
+}
+
+.contact {
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  .intro_content {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .intro_content h1 {
+    font-size: 2rem;
+  }
+  .intro_content p {
+    font-size: 1rem;
+  }
+}
