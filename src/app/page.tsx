@@ -2,7 +2,6 @@
 import { gsap } from "gsap";
 import { TextPlugin, ScrollTrigger } from "gsap/all";
 import { useRef, useEffect, useState, useLayoutEffect, JSX } from "react";
-import { motion } from "framer-motion";
 import styles from "./page.module.css";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
@@ -31,8 +30,6 @@ const contact_heading: string[] = [
   "Looking for collaboration ?",
   "Want to work together ?",
 ];
-
-
 
 const contactIcons: contactIconsProps[] = [
   {
@@ -255,12 +252,7 @@ const Page = () => {
           </div>
         </div>
         <div className={styles.heroImage} ref={heroImageRef}>
-          <motion.img
-            initial={{
-              opacity: 0,
-            }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+          <img
             src={"home/hero.png"}
             alt="Durai Pon Singh D | Full Stack Develper and AI Engineer"
           />
@@ -320,7 +312,7 @@ const Page = () => {
         </div>
         <div className={styles.contact_icons}>
           {contactIcons.map((contact, i) => (
-            <Link key={i} href={contact.link} >
+            <Link key={i} href={contact.link}>
               {contact.icon}
             </Link>
           ))}

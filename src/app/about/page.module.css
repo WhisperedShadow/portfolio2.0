@@ -1,5 +1,3 @@
-/* intro styling */
-
 .intro {
   display: grid;
   grid-template-columns: 5fr 3fr;
@@ -25,33 +23,188 @@
   font-family: var(--fs);
 }
 
-.intro_content p::first-letter{
-    padding-left: 2rem;
+.intro_content p::first-letter {
+  padding-left: 2rem;
 }
 
 .intro_content p span {
   font-weight: bold;
 }
 
-.intro_image{
-display: relative;
+.intro_content code {
+  display: block;
+  border-left: 3px solid var(--ca);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
 }
 
-.intro_image img{
-  display: absolute;
-  width:90%;
+.intro_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.intro_image img {
+  width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 
 .strength {
-  background-color: black;
+  background-color: var(--cd);
+  color: white;
+}
+
+.strength .container {
+  padding: 5rem 2rem;
+}
+
+.strength h1,
+.skills h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 3rem;
+  font-family: var(--fp);
+}
+
+.strength_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.strength_card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.strength_card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.strength_card span {
+  font-size: 2rem;
+}
+
+.strength_card h3 {
+  margin: 1rem 0 0.5rem;
 }
 
 .skills {
+  background-color: var(--cw);
+}
+
+.skills .container {
+  padding: 3rem 2rem;
+}
+
+.skills_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.skillCard {
+  width: 100%;
+  height: 300px;
+  background: var(--cg);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--cd);
+  border-radius: 15px;
+  box-shadow: -20px 20px 0px -5px var(--cd);
+}
+.tags {
+  overflow: auto;
+  height: 80%;
+}
+.skillCard .title {
+  font-weight: 900;
+  font-size: 1.7em;
+}
+
+.tagName {
+  display: inline-block;
+  color: var(--cw);
+  font-size: 1.1em;
+  background-color: var(--cd);
+  padding: 6px 23px 9px;
+  border-radius: 70em;
+  margin: 8px 6px 8px 0;
+  margin-left: 0px;
+  position: relative;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tagName::before,
+.tagName::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cg);
+}
+
+.tagName::before {
+  left: 7px;
+}
+
+.tagName::after {
+  right: 7px;
+}
+
+.tagName:hover {
+  transform: scale(1.1);
+  background-color: #51572c;
 }
 
 .contact {
   background-color: black;
+  color: white;
+}
+
+.contact {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.contact_heading {
+  font-family: var(--fp);
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  height: 4rem;
+  text-align: center;
+}
+
+.contact_para {
+  font-family: var(--ft);
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.contact_btns {
+  display: flex;
+  gap: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -67,7 +220,20 @@ display: relative;
   .intro_content h1 {
     font-size: 2rem;
   }
-  .intro_content p {
+  .intro_content p,
+  .intro_content code {
+    font-size: 1rem;
+  }
+  .intro_image {
+    padding-bottom: 2rem;
+  }
+
+  .contact_heading {
+    font-size: 2rem;
+    height: 6rem;
+  }
+
+  .contact_para {
     font-size: 1rem;
   }
 }

@@ -1,23 +1,19 @@
 .hero {
-  /* background-color: red; */
+  position: relative;
   display: grid;
   grid-template-columns: 3fr 2fr;
   min-height: calc(100vh - 50px);
   overflow: hidden;
-  /* background-image: url("/home/2147864690.jpg");
-  background-size: cover; */
 }
 
 .heroImage {
   position: relative;
-  /* background-color: #fff; */
 }
 
 .heroImage img {
   position: absolute;
   height: 100%;
   bottom: 0;
-  overflow: hidden;
 }
 
 .heroContent {
@@ -130,16 +126,16 @@
   font-size: 3rem;
 }
 
-.projects_heading a{
+.projects_heading a {
   color: black;
   border: 1px solid black;
 }
 
-.projects_heading a:hover{
+.projects_heading a:hover {
   color: white;
 }
 
-.projects_heading a::after{
+.projects_heading a::after {
   background-color: black;
 }
 
