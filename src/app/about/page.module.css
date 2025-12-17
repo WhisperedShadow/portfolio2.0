@@ -166,17 +166,17 @@
 
 .tagName:hover {
   transform: scale(1.1);
-  background-color: #51572c;
+  background-color: var(--cd);
 }
 
 .contact {
-  background-color: black;
-  color: white;
+  background-color: var(--cd);
+  color: var(--cw);
 }
 
 .contact {
-  background-color: black;
-  color: white;
+  background-color: var(--cd);
+  color: var(--cw);
   display: flex;
   flex-direction: column;
   align-items: center;

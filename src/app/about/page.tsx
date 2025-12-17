@@ -51,20 +51,48 @@ const Page = () => {
   // Categories of skills
   const skillCategories = [
     {
-      name: "Frontend",
-      skills: ["React", "TypeScript", "Next.js", "CSS/SCSS", "Framer Motion"],
+      name: "Frontend - Core",
+      skills: [
+        "HTML",
+        "CSS / SCSS",
+        "JavaScript / TypeScript",
+        "Responsive Design",
+      ],
+    },
+    {
+      name: "Frameworks & Animation",
+      skills: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion",
+        "GSAP",
+        "Three.js",
+      ],
     },
     {
       name: "Backend",
-      skills: ["Node", "Express", "Flask", "MongoDB", "SQL", "REST APIs"],
+      skills: ["Node.js", "Express.js", "Flask", "REST APIs", "Authentication"],
+    },
+    {
+      name: "Databases",
+      skills: ["MongoDB", "MySQL", "SQL", "Firebase"],
     },
     {
       name: "Languages",
-      skills: ["Python", "JavaScript", "TypeScript", "java"],
+      skills: ["Python", "JavaScript", "TypeScript", "Java", "C (Basics)"],
     },
     {
-      name: "Tools & Others",
-      skills: ["Git", "AWS", "Figma", "GSAP"],
+      name: "Tools & Platforms",
+      skills: [
+        "Git",
+        "GitHub",
+        "Vercel",
+        "Render",
+        "AWS (Basics)",
+        "Figma",
+        "CLI Tools",
+      ],
     },
   ];
 
