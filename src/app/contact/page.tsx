@@ -77,29 +77,29 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <FaGithub />,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/WhisperedShadow",
       label: "GitHub",
     },
     {
       icon: <FaLinkedin />,
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/d-durai-pon-singh",
       label: "LinkedIn",
     },
     {
       icon: <FaInstagram />,
-      url: "https://instagram.com/yourusername",
+      url: "https://www.instagram.com/whispered_shadow/",
       label: "Instagram",
+    }, {
+      icon: <FaFacebook />,
+      url: "https://www.facebook.com/duraiponsingh.d",
+      label: "Facebook",
     },
     {
       icon: <FaEnvelope />,
-      url: "mailto:youremail@example.com",
+      url: "mailto:dduraiponsingh@gmail.com",
       label: "Email",
     },
-    {
-      icon: <FaFacebook />,
-      url: "mailto:youremail@example.com",
-      label: "Facebook",
-    },
+   
   ];
 
   return (
@@ -261,7 +261,7 @@ const Contact = () => {
                   <FaEnvelope className={styles.infoIcon} />
                   <div>
                     <h4>Email</h4>
-                    <p>youremail@example.com</p>
+                    <p>dduraiponsingh@gmail.com</p>
                   </div>
                 </div>
                 <div className={styles.infoNote}>
