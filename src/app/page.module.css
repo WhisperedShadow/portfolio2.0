@@ -4,6 +4,7 @@
   grid-template-columns: 3fr 2fr;
   min-height: calc(100vh - 50px);
   overflow: hidden;
+  background-color: var(--cw);
 }
 
 .heroImage {
@@ -113,6 +114,7 @@
 
 .projects {
   padding: 2rem;
+  background-color: var(--cw);
 }
 
 .projects_heading {

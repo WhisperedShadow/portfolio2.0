@@ -1,9 +1,13 @@
 .projects {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
   min-height: auto;
   padding-top: 5rem;
+  background-color: var(--cw);
+}
+
+.con{
+  padding: 0 5%;
+  background-color: var(--cw);
 }
 
 .heroSection {

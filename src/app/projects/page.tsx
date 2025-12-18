@@ -180,114 +180,116 @@ const Page = () => {
   };
 
   return (
-    <section className={styles.projects}>
-      <div className={styles.heroSection}>
-        <h1 className={styles.projectsHeading}>My Projects</h1>
-        <p className={styles.projectsPara}>
-          A collection of my recent work, ranging from AI-powered platforms to
-          utility tools and full-stack applications. Each project represents a
-          unique challenge and learning opportunity.
-        </p>
-      </div>
+    <section className={styles.con}>
+      <section className={styles.projects}>
+        <div className={styles.heroSection}>
+          <h1 className={styles.projectsHeading}>My Projects</h1>
+          <p className={styles.projectsPara}>
+            A collection of my recent work, ranging from AI-powered platforms to
+            utility tools and full-stack applications. Each project represents a
+            unique challenge and learning opportunity.
+          </p>
+        </div>
 
-      <div className={styles.container}>
-        {projects.map((project, index) => (
-          <article
-            key={project.id}
-            className={styles.project}
-            style={{ "--index": index } as React.CSSProperties}
-          >
-            <div className={styles.imageContainer}>
-              {!imageError[project.id] && (
-                <img
-                  src={project.image}
-                  alt={`${project.title} screenshot`}
-                  className={styles.image}
-                  loading={index < 3 ? "eager" : "lazy"}
-                  onError={() => handleImageError(project.id)}
-                />
-              )}
-              {project.category && (
-                <span
-                  className={`${styles.category} ${
-                    styles[project.category.toLowerCase()]
-                  }`}
-                >
-                  {project.category}
-                </span>
-              )}
-            </div>
-
-            <div className={styles.content}>
-              <header className={styles.header}>
-                <h2 className={styles.title}>{project.title}</h2>
-                <code className={styles.tagline}>{project.tagline}</code>
-              </header>
-
-              <p className={styles.description}>{project.description}</p>
-
-              {project.features && project.features.length > 0 && (
-                <div className={styles.features}>
-                  <h4 className={styles.featuresTitle}>Key Features:</h4>
-                  <ul className={styles.featuresList}>
-                    {project.features.map((feature, i) => (
-                      <li key={i} className={styles.featureItem}>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {project.techStack && project.techStack.length > 0 && (
-                <div className={styles.techStack}>
-                  <h4 className={styles.techTitle}>Tech Stack:</h4>
-                  <div className={styles.techTags}>
-                    {project.techStack
-                      .slice(0, isMobile ? 3 : 5)
-                      .map((tech, i) => (
-                        <span key={i} className={styles.techTag}>
-                          {tech}
-                        </span>
-                      ))}
-                    {isMobile && project.techStack.length > 3 && (
-                      <span className={styles.techTag}>
-                        +{project.techStack.length - 3}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              <div className={styles.links}>
-                {project.liveUrl ? (
-                  <SecondaryLinks
-                    label={isMobile ? "Live Site" : "Visit Live Site"}
-                    link={project.liveUrl}
-                    dowloadble={false}
+        <div className={styles.container}>
+          {projects.map((project, index) => (
+            <article
+              key={project.id}
+              className={styles.project}
+              style={{ "--index": index } as React.CSSProperties}
+            >
+              <div className={styles.imageContainer}>
+                {!imageError[project.id] && (
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className={styles.image}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    onError={() => handleImageError(project.id)}
                   />
-                ) : (
-                  <button className={styles.disabledLink} disabled>
-                    {isMobile ? "Coming Soon" : "Coming Soon"}
-                  </button>
                 )}
-
-                {project.githubUrl ? (
-                  <TertiaryLinks
-                    label={isMobile ? "Code" : "View Code"}
-                    link={project.githubUrl}
-                    dowloadble={false}
-                  />
-                ) : (
-                  <button className={styles.disabledLink} disabled>
-                    {isMobile ? "Private" : "Code Private"}
-                  </button>
+                {project.category && (
+                  <span
+                    className={`${styles.category} ${
+                      styles[project.category.toLowerCase()]
+                    }`}
+                  >
+                    {project.category}
+                  </span>
                 )}
               </div>
-            </div>
-          </article>
-        ))}
-      </div>
+
+              <div className={styles.content}>
+                <header className={styles.header}>
+                  <h2 className={styles.title}>{project.title}</h2>
+                  <code className={styles.tagline}>{project.tagline}</code>
+                </header>
+
+                <p className={styles.description}>{project.description}</p>
+
+                {project.features && project.features.length > 0 && (
+                  <div className={styles.features}>
+                    <h4 className={styles.featuresTitle}>Key Features:</h4>
+                    <ul className={styles.featuresList}>
+                      {project.features.map((feature, i) => (
+                        <li key={i} className={styles.featureItem}>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.techStack && project.techStack.length > 0 && (
+                  <div className={styles.techStack}>
+                    <h4 className={styles.techTitle}>Tech Stack:</h4>
+                    <div className={styles.techTags}>
+                      {project.techStack
+                        .slice(0, isMobile ? 3 : 5)
+                        .map((tech, i) => (
+                          <span key={i} className={styles.techTag}>
+                            {tech}
+                          </span>
+                        ))}
+                      {isMobile && project.techStack.length > 3 && (
+                        <span className={styles.techTag}>
+                          +{project.techStack.length - 3}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                <div className={styles.links}>
+                  {project.liveUrl ? (
+                    <SecondaryLinks
+                      label={isMobile ? "Live Site" : "Visit Live Site"}
+                      link={project.liveUrl}
+                      dowloadble={false}
+                    />
+                  ) : (
+                    <button className={styles.disabledLink} disabled>
+                      {isMobile ? "Coming Soon" : "Coming Soon"}
+                    </button>
+                  )}
+
+                  {project.githubUrl ? (
+                    <TertiaryLinks
+                      label={isMobile ? "Code" : "View Code"}
+                      link={project.githubUrl}
+                      dowloadble={false}
+                    />
+                  ) : (
+                    <button className={styles.disabledLink} disabled>
+                      {isMobile ? "Private" : "Code Private"}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </section>
   );
 };

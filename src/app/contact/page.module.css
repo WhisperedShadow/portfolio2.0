@@ -79,6 +79,10 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.textarea{
+  resize: none;
+}
+
 .input::placeholder,
 .textarea::placeholder {
   color: rgba(248, 249, 251, 0.4);
