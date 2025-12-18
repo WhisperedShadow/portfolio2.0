@@ -217,6 +217,10 @@
     padding: 1rem;
   }
 
+  .intro_content code{
+    font-size: 2rem;
+  }
+
   .intro_content h1 {
     font-size: 2rem;
   }
