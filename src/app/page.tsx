@@ -14,6 +14,7 @@ import {
   facebookIcon,
 } from "@/assets/Icons/Icons";
 import Link from "next/link";
+import { seo } from "@/lib/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
@@ -73,6 +74,7 @@ const projectsData: projectsProps[] = [
     image: "home/projects/convozo.png",
   },
 ];
+
 
 const Page = () => {
   const [mobileView, setMobileView] = useState(false);
@@ -246,7 +248,7 @@ const Page = () => {
             />
             <SecondaryLinks
               label="Contact Me"
-              link="/contatc"
+              link="/contact"
               dowloadble={false}
             />
           </div>

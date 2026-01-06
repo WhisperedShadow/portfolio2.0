@@ -17,25 +17,25 @@ export const metadata: Metadata = {
   title: "Durai Pon Singh | Portfolio",
   description:
     "Full-stack web developer specializing in MERN, AI-powered apps, and modern UI/UX.",
-    keywords:[
-      "Durai Pon Singh",
-      "Portfolio",
-      "Full-stack Developer",
-      "MERN Stack",
-      "AI-powered Applications",
-      "Web Development",
-      "UI/UX Design",
-      "JavaScript",
-      "React",
-      "Node.js",
-      "MongoDB",
-      "Express.js",
-      "Next.js",
-      "Frontend Development",
-      "Backend Development",
-      "Software Engineer",
-      "duraiponsingh"
-    ],
+  keywords: [
+    "Durai Pon Singh",
+    "Portfolio",
+    "Full-stack Developer",
+    "MERN Stack",
+    "AI-powered Applications",
+    "Web Development",
+    "UI/UX Design",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Express.js",
+    "Next.js",
+    "Frontend Development",
+    "Backend Development",
+    "Software Engineer",
+    "duraiponsingh",
+  ],
   authors: [{ name: "Durai Pon Singh", url: "https://duraiponsingh.tech" }],
   creator: "Durai Pon Singh",
   openGraph: {
@@ -55,7 +55,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  
 };
 
 export default function RootLayout({
@@ -65,9 +64,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Durai Pon Singh" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Nav />
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Durai Pon Singh",
+              url: "https://duraiponsingh.tech",
+              jobTitle: "Full Stack Developer",
+            }),
+          }}
+        />
       </body>
     </html>
   );

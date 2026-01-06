@@ -1,0 +1,116 @@
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0b0d10 0%, #1a1d24 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(248, 249, 251, 0.03) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+.logo {
+  font-family: var(--fp);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, var(--cw), #6B7280, var(--cw));
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s linear infinite;
+}
+
+.loader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--cw);
+  animation: pulse 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.progress {
+  width: 300px;
+  height: 4px;
+  background: rgba(248, 249, 251, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cw), #6B7280);
+  width: 0%;
+  animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+    transform: translateX(-100%);
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+    transform: translateX(200%);
+  }
+}
+
+.message {
+  font-family: var(--fs);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--cw);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+/* Generate particles at different positions */
+.particle:nth-child(1) { top: 20%; left: 10%; animation: float 4s infinite; }
+.particle:nth-child(2) { top: 60%; left: 80%; animation: float 5s infinite 1s; }
+.particle:nth-child(3) { top: 30%; left: 90%; animation: float 6s infinite 0.5s; }
+.particle:nth-child(4) { top: 80%; left: 20%; animation: float 4.5s infinite 0.2s; }
+.particle:nth-child(5) { top: 40%; left: 50%; animation: float 5.5s infinite 0.8s; }

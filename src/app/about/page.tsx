@@ -3,11 +3,11 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import TertiaryLinks from "@/components/TertiaryLinks/TertiaryLinks";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { TextPlugin, ScrollTrigger } from "gsap/all";
 import styles from "./page.module.css";
+import { seo } from "@/lib/seo";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, TextPlugin);

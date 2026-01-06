@@ -8,6 +8,7 @@ import PrimaryLinks from "@/components/PrimaryLinks/PrimaryLinks";
 import SecondaryLinks from "@/components/SecondaryLinks/SecondaryLinks";
 import HamburgerMenu from "@/assets/HamburgerMenu/HamburgerMenu";
 import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
 
 const nav_links: link[] = [
   { label: "Home", link: "/" },
@@ -21,11 +22,16 @@ const Nav = () => {
   const [mobileView, setMobileView] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const linksRef = useRef<HTMLSpanElement[] | null[]>([]);
+  const navPages = ["/", "/about", "/projects", "/contact"];
+
+  const path = usePathname();
 
   useEffect(() => {
     const handleResize = () => setMobileView(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
+    console.log(path);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -48,6 +54,10 @@ const Nav = () => {
       tl.set(menuRef.current, { display: "none" });
     }
   }, [menuOpen, mobileView]);
+
+  if (!navPages.includes(path)) {
+    return null;
+  }
 
   if (mobileView) {
     return (
@@ -75,6 +85,7 @@ const Nav = () => {
                   linksRef.current[i] = el;
                 }
               }}
+              onClick={() => setMenuOpen((p) => !p)}
             >
               <PrimaryLinks label={navLink.label} link={navLink.link} />
             </span>

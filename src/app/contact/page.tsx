@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaInstagram,
   FaFacebook,
+  FaBlogger
 } from "react-icons/fa";
 import Head from "next/head";
 
@@ -90,6 +91,10 @@ const Contact = () => {
       url: "https://www.instagram.com/whispered_shadow/",
       label: "Instagram",
     }, {
+      icon: <FaBlogger />,
+      url: "https://duraiponsingh.blogspot.com/",
+      label: "Blogger",
+    },{
       icon: <FaFacebook />,
       url: "https://www.facebook.com/duraiponsingh.d",
       label: "Facebook",
