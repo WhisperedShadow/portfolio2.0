@@ -100,11 +100,7 @@ const Nav = () => {
           >
             <SecondaryLinks
               label="My Resume"
-<<<<<<< HEAD
               link="Durai-Pon-Singh-Resume.pdf"
-=======
-              link="Resume.pdf"
->>>>>>> f084f5494274fda376b6fe9862cc2839bc9d246c
               dowloadble={true}
             />
           </span>
