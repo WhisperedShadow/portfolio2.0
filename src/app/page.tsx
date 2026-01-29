@@ -255,7 +255,7 @@ const Page = () => {
         </div>
         <div className={styles.heroImage} ref={heroImageRef}>
           <img
-            src={"home/hero.png"}
+            src={"home/hero.webp"}
             alt="Durai Pon Singh D | Full Stack Develper and AI Engineer"
           />
         </div>

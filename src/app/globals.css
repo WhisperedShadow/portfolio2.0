@@ -1,16 +1,19 @@
 @font-face {
   font-family: "Audiowide";
   src: url(fonts/Audiowide-Regular.ttf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: "sora";
   src: url(fonts/Sora-VariableFont_wght.ttf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Exo 2";
   src: url(fonts/static/Exo2-Regular.ttf);
+  font-display: swap;
 }
 
 :root {
